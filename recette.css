@@ -1,0 +1,199 @@
+/*
+CSS : L'ordre dans lequel on met les styles compte : le style défini en bas écrase celui d'en haut
+De préférence, on met les styles génériques en haut de la feuille et les styles plus spécifiques en bas
+*/
+* { /* Le * concerne toute la page */
+    overflow: auto; /* Réadapte la taille du conteneur pour contenir tout ce qui déborde */
+}
+
+body {
+    background-color: blue;        
+}
+
+body {
+    background-color: #8BA1BB;
+    font-family: Arial;  
+    margin: 0;              
+}
+
+div.contenu {
+    background-color: white;
+    /* margin-left: 60px; */
+    /* margin: 30px 100px; */
+    /* Haut, Droite, Bas, Gauche */
+    /* margin: 50px 60px 50px 60px; */
+    /* margin: 60px 10% 80px 10%; */
+    margin: 60px 10% 80px 10%;
+    padding: 0px 30px 30px 30px;
+    min-width: 305px; /* Ne plus réduire le contenu en dessous de 350px */
+    /* Effet d'ombre */
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+p.description {
+    text-align: center;
+    max-width: 400px;
+    /* background-color: yellow; */
+    display: inline-block;
+    font-size: 14px;
+}
+
+.centre {
+/* div.centre { */
+    text-align: center;
+    width: 100%;
+}
+/*
+div.description {
+    text-align: center;
+    background-color: blue;
+}
+div.categorie {
+    text-align: center;
+}
+*/
+
+/*
+Pour éviter de dupliquer les propriétés, on peut mettre des Virgules
+Ex : p.categorie, h1, h2.categorie { ... }
+     p#categorie { p#categorie : applique le style aux Paragraphes avec l'ID: categorie
+     #categorie  { Par contre, #categorie s'applique à tous les éléments qui ont un ID: categorie
+*/
+p.categorie { /* Pour les Classes */
+    background-color: black;
+    color: white;
+    /* display: block; */
+    /* display: inline; */
+    display: inline-block;
+    /* margin-left: 30px; */
+    /* margin-top: 40px; -> Ne marche pas en mode display: inline; => il faudra utiliser : inline-block */
+    margin-top: -15px;
+    padding: 8px 18px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+div.categorie {                
+    margin-bottom: 0px;
+    margin-top: 0px;
+    overflow: visible;
+}
+
+div.separateur {                
+    width: 100px;
+    height: 1px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.info {
+    position: relative;
+    /* background-color: blue; */
+}
+
+table.info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: #6C829DC0; /* C0 niveau de transparence 50% et + */
+    height: 80px;
+}
+
+table.info td { /* Si on veut appliquer à tous les td de la class info, on met un espace.
+    Ce n'est pas pareil que la virgule où le style va s'appliquer à plusieurs types d'éléments */
+    text-align: center;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+table.info th { /* Pour les th */
+    font-size: 16px;
+    vertical-align: bottom;
+    padding-bottom: 8px;
+}
+
+img.info {
+    display: block;
+    max-height: 400px; /* Pour limiter le grossissement de l'image */
+    object-fit: cover;
+    min-height: 200px; /* Même si l'image n'est pas chargée, on a un emplacement */
+    background-color: lightgray; /* Idem, si l'image n'est pas chargée, on a un fond */
+}
+
+/* Propriété commune entre colonne1 et colonne2
+div.colonne1, div.colonne2 {
+    width: 50%;
+}
+=> Pour combiner, changer la class en : colonne
+*/
+div.colonne {
+    width: 45%;
+    margin-top: 20px;
+}
+
+div.colonne h2 {
+    text-align: center;
+    text-transform: uppercase; /* Transformer le texte en majuscule */
+    font-size: 15px;
+    border-bottom: 5px solid #6C829D;
+    padding-bottom: 5px;
+}
+
+div.colonne1 {
+    /* background-color: lightblue; */
+    display: inline-block;
+    margin-right: 10%;
+}
+
+div.colonne2 {
+    float: right; /* float : Taille div non pris en compte => Peut entraîner des débordements : Overflow */
+}
+
+div.ingredients p {
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid lightgray;
+    padding: 8px 0;
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+
+table.preparation p.numero {
+    background-color: #6C829D;
+    color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 4px;
+    box-sizing: border-box;
+    border-radius: 50%; /* Effet arrondi */
+    margin: 0;
+}
+
+table.preparation td {
+    vertical-align: top;
+}
+
+table.preparation td.preparation_etape {
+    font-size: 14px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+table.preparation tr {
+    height: 40px;
+}
+
