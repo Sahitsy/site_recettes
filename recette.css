@@ -1,9 +1,5 @@
-/*
-CSS : L'ordre dans lequel on met les styles compte : le style défini en bas écrase celui d'en haut
-De préférence, on met les styles génériques en haut de la feuille et les styles plus spécifiques en bas
-*/
-* { /* Le * concerne toute la page */
-    overflow: auto; /* Réadapte la taille du conteneur pour contenir tout ce qui déborde */
+* {
+    overflow: auto;
 }
 
 body {
@@ -18,16 +14,8 @@ body {
 
 div.contenu {
     background-color: white;
-    /* margin-left: 60px; */
-    /* margin: 30px 100px; */
-    /* Haut, Droite, Bas, Gauche */
-    /* margin: 50px 60px 50px 60px; */
-    /* margin: 60px 10% 80px 10%; */
-    margin: 60px 10% 80px 10%;
-    padding: 0px 30px 30px 30px;
-    min-width: 305px; /* Ne plus réduire le contenu en dessous de 350px */
-    /* Effet d'ombre */
-    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    margin: 40px 8px 40px 8px;
+    padding: 0px 8px 20px 8px;
     box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
     overflow: visible;
 }
@@ -41,40 +29,19 @@ h1 {
 p.description {
     text-align: center;
     max-width: 400px;
-    /* background-color: yellow; */
     display: inline-block;
     font-size: 14px;
 }
 
 .centre {
-/* div.centre { */
     text-align: center;
     width: 100%;
 }
-/*
-div.description {
-    text-align: center;
-    background-color: blue;
-}
-div.categorie {
-    text-align: center;
-}
-*/
 
-/*
-Pour éviter de dupliquer les propriétés, on peut mettre des Virgules
-Ex : p.categorie, h1, h2.categorie { ... }
-     p#categorie { p#categorie : applique le style aux Paragraphes avec l'ID: categorie
-     #categorie  { Par contre, #categorie s'applique à tous les éléments qui ont un ID: categorie
-*/
-p.categorie { /* Pour les Classes */
+p.categorie {
     background-color: black;
     color: white;
-    /* display: block; */
-    /* display: inline; */
     display: inline-block;
-    /* margin-left: 30px; */
-    /* margin-top: 40px; -> Ne marche pas en mode display: inline; => il faudra utiliser : inline-block */
     margin-top: -15px;
     padding: 8px 18px;
     margin-bottom: 0px;
@@ -98,7 +65,6 @@ div.separateur {
 
 div.info {
     position: relative;
-    /* background-color: blue; */
 }
 
 table.info {
@@ -106,60 +72,51 @@ table.info {
     bottom: 0;
     width: 100%;
     color: white;
-    background-color: #6C829DC0; /* C0 niveau de transparence 50% et + */
-    height: 80px;
+    background-color: #6C829DC0;
+    height: 50px;
 }
 
-table.info td { /* Si on veut appliquer à tous les td de la class info, on met un espace.
-    Ce n'est pas pareil que la virgule où le style va s'appliquer à plusieurs types d'éléments */
+table.info td {
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     vertical-align: top;
 }
 
-table.info th { /* Pour les th */
-    font-size: 16px;
+table.info th {
+    font-size: 14px;
     vertical-align: bottom;
     padding-bottom: 8px;
 }
 
 img.info {
     display: block;
-    max-height: 400px; /* Pour limiter le grossissement de l'image */
+    max-height: 400px;
     object-fit: cover;
-    min-height: 200px; /* Même si l'image n'est pas chargée, on a un emplacement */
-    background-color: lightgray; /* Idem, si l'image n'est pas chargée, on a un fond */
+    min-height: 200px;
+    background-color: lightgray;
 }
 
-/* Propriété commune entre colonne1 et colonne2
-div.colonne1, div.colonne2 {
-    width: 50%;
-}
-=> Pour combiner, changer la class en : colonne
-*/
 div.colonne {
-    width: 45%;
+    width: 100%;
     margin-top: 20px;
 }
 
 div.colonne h2 {
     text-align: center;
-    text-transform: uppercase; /* Transformer le texte en majuscule */
+    text-transform: uppercase;
     font-size: 15px;
     border-bottom: 5px solid #6C829D;
     padding-bottom: 5px;
 }
 
 div.colonne1 {
-    /* background-color: lightblue; */
     display: inline-block;
-    margin-right: 10%;
 }
-
+/*
 div.colonne2 {
-    float: right; /* float : Taille div non pris en compte => Peut entraîner des débordements : Overflow */
+    float: right;
 }
-
+*/
 div.ingredients p {
     text-align: center;
     font-size: 14px;
@@ -179,7 +136,7 @@ table.preparation p.numero {
     font-weight: bold;
     padding-top: 4px;
     box-sizing: border-box;
-    border-radius: 50%; /* Effet arrondi */
+    border-radius: 50%;
     margin: 0;
 }
 
@@ -197,3 +154,48 @@ table.preparation tr {
     height: 40px;
 }
 
+/* Styles pour ordinateur */
+@media only screen and (min-width: 768px) {
+    div.contenu {
+        margin: 60px 10% 80px 10%;
+        padding: 0px 30px 30px 30px;
+        min-width: 305px;
+    }
+
+    table.info {
+        height: 80px;
+    }
+    
+    table.info td {
+        font-size: 14px;
+    }
+    
+    table.info th {
+        font-size: 16px;
+    }
+
+    div.colonne {
+        width: 45%;
+    }
+    
+    div.colonne1 {
+        margin-right: 10%;
+    }
+    
+    div.colonne2 {
+        float: right;
+    }
+}
+
+/* Cas des écrans trop grands */
+@media only screen and (min-width: 900px) {
+    div.contenu {
+        margin-left: auto;
+        margin-right: auto;
+        width: 645px;
+        /*
+        margin: 60px auto 80px auto;
+        max-width: 650px;
+        */
+    }
+}
